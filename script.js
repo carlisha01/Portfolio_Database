@@ -1,6 +1,12 @@
 (function () {
   'use strict';
 
+  /* ── Prevent browser scroll restoration from jumping to a hash anchor on reload ── */
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   /* ── Navbar scroll state ── */
   const navbar = document.getElementById('navbar');
 

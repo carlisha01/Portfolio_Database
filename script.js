@@ -25,9 +25,10 @@
     });
   });
 
-  /* ── Active nav link on scroll ── */
+  /* ── Active nav link + scroll-nav dots on scroll ── */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const scrollNavDots = document.querySelectorAll('.scroll-nav-dot');
 
   const activeObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -35,6 +36,9 @@
         const id = entry.target.id;
         navLinks.forEach(function (link) {
           link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+        scrollNavDots.forEach(function (dot) {
+          dot.classList.toggle('active', dot.getAttribute('href') === '#' + id);
         });
       }
     });

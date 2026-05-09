@@ -60,11 +60,23 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach(function (el) {
-    revealObserver.observe(el);
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('revealed');
+    } else {
+      revealObserver.observe(el);
+    }
   });
+
+  /* Fallback: reveal anything still hidden after 1.5s */
+  setTimeout(function () {
+    document.querySelectorAll('.reveal:not(.revealed)').forEach(function (el) {
+      el.classList.add('revealed');
+    });
+  }, 1500);
 
   /* ── Data grid (hero visual) ── */
   const grid = document.getElementById('dataGrid');

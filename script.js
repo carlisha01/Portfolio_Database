@@ -135,4 +135,155 @@
     barObserver.observe(chartSection);
   }
 
+
+  /* ── Dashboard preview tabs + Chart.js ── */
+  const dashTabBtns = document.querySelectorAll('.dash-tab-btn');
+  const dashPanels  = document.querySelectorAll('.dash-panel');
+  const dashReady   = {};
+
+  function dashC() {
+    return {
+      teal:      '#0F5757', tealMid:  '#1A8080', tealLight: '#4AABAB',
+      amber:     '#C17F3A', amberMid: '#D4A55A', slate:     '#6B9E9E',
+      rose:      '#B85C5C', blue:     '#4A7AAB',
+      tick:      '#8A8A8A', grid:     'rgba(0,0,0,0.06)',
+      font:      "'Inter', system-ui, sans-serif",
+    };
+  }
+
+  function fmtK(v) {
+    return Math.abs(v) >= 1000 ? '€' + (v / 1000).toFixed(0) + 'k' : '€' + v;
+  }
+
+  function initDashTab(tab) {
+    if (typeof Chart === 'undefined') return;
+    const co = dashC();
+    const tk = { color: co.tick, font: { family: co.font, size: 11 } };
+    const gr = { color: co.grid };
+
+    if (tab === 'overview') {
+      const elCat = document.getElementById('chartCategory');
+      const elDay = document.getElementById('chartDayOfWeek');
+      if (!elCat || !elDay) return;
+      new Chart(elCat, {
+        type: 'bar',
+        data: {
+          labels: ['Food Menu', 'Set Menus', 'Wines & Cava', 'Beverages', 'Cafeteria', 'Spirits'],
+          datasets: [{ data: [185200, 47300, 32100, 18400, 12000, 8180], backgroundColor: [co.teal, co.tealMid, co.tealLight, co.amber, co.amberMid, co.slate], borderRadius: 3 }]
+        },
+        options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } },
+          scales: { x: { grid: gr, ticks: Object.assign({}, tk, { callback: fmtK }) }, y: { grid: { display: false }, ticks: tk } } }
+      });
+      new Chart(elDay, {
+        type: 'bar',
+        data: {
+          labels: ['Sunday', 'Saturday', 'Monday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday'],
+          datasets: [{ data: [71400, 68900, 44180, 42100, 34800, 31200, 18900], backgroundColor: [co.teal, co.teal, co.tealMid, co.tealMid, co.tealLight, co.tealLight, co.amber], borderRadius: 3 }]
+        },
+        options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } },
+          scales: { x: { grid: gr, ticks: Object.assign({}, tk, { callback: fmtK }) }, y: { grid: { display: false }, ticks: tk } } }
+      });
+    }
+
+    if (tab === 'menu') {
+      const elDonut = document.getElementById('chartMenuDonut');
+      const elLine  = document.getElementById('chartMonthly');
+      if (!elDonut || !elLine) return;
+      new Chart(elDonut, {
+        type: 'doughnut',
+        data: {
+          labels: ['Tapas', 'Rice Dishes', 'Fish', 'Meat', 'Daily Special', 'Starters', 'Desserts', 'Other'],
+          datasets: [{ data: [20.6, 20.5, 14.7, 11.9, 10.3, 8.0, 6.9, 7.1], backgroundColor: [co.teal, co.tealMid, co.tealLight, co.amber, co.amberMid, co.slate, co.rose, co.blue], borderWidth: 2, borderColor: '#fff' }]
+        },
+        options: { maintainAspectRatio: false, cutout: '60%',
+          plugins: { legend: { position: 'right', labels: { font: { family: co.font, size: 11 }, color: co.tick, boxWidth: 12, padding: 8 } } } }
+      });
+      new Chart(elLine, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+          datasets: [
+            { label: 'Food Menu',    data: [34800, 42100, 52400, 55900], borderColor: co.teal,      backgroundColor: 'rgba(15,87,87,0.08)', fill: true,  tension: 0.4, pointRadius: 4, borderWidth: 2 },
+            { label: 'Set Menus',    data: [9200,  11400, 13800, 12900], borderColor: co.amber,     backgroundColor: 'transparent',          fill: false, tension: 0.4, pointRadius: 4, borderWidth: 2 },
+            { label: 'Wines & Cava', data: [6400,  7800,  9200,  8700],  borderColor: co.tealLight, backgroundColor: 'transparent',          fill: false, tension: 0.4, pointRadius: 4, borderWidth: 2 }
+          ]
+        },
+        options: { maintainAspectRatio: false,
+          plugins: { legend: { labels: { font: { family: co.font, size: 11 }, color: co.tick, boxWidth: 12, usePointStyle: true, pointStyleWidth: 8 } } },
+          scales: { x: { grid: gr, ticks: tk }, y: { grid: gr, ticks: Object.assign({}, tk, { callback: fmtK }) } } }
+      });
+    }
+
+    if (tab === 'wine') {
+      const elWine = document.getElementById('chartWineDonut');
+      const elTop  = document.getElementById('chartTopWines');
+      if (!elWine || !elTop) return;
+      new Chart(elWine, {
+        type: 'doughnut',
+        data: {
+          labels: ['White Wine', 'Red Wine', 'Sangria', 'Cava', 'Rosé'],
+          datasets: [{ data: [42.5, 23.7, 21.8, 9.2, 2.8], backgroundColor: [co.teal, co.rose, co.amber, co.tealLight, co.amberMid], borderWidth: 2, borderColor: '#fff' }]
+        },
+        options: { maintainAspectRatio: false, cutout: '60%',
+          plugins: { legend: { position: 'right', labels: { font: { family: co.font, size: 11 }, color: co.tick, boxWidth: 12, padding: 8 } } } }
+      });
+      new Chart(elTop, {
+        type: 'bar',
+        data: {
+          labels: ['Sangria Brut', 'White Reserva', 'Albaríño', 'Verdejo', 'Grenache Blanc'],
+          datasets: [{ data: [3820, 3651, 2565, 2014, 1948], backgroundColor: [co.teal, co.tealMid, co.tealLight, co.amber, co.amberMid], borderRadius: 3 }]
+        },
+        options: { indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } },
+          scales: { x: { grid: gr, ticks: Object.assign({}, tk, { callback: function(v) { return '€' + Number(v).toLocaleString('en'); } }) }, y: { grid: { display: false }, ticks: tk } } }
+      });
+    }
+
+    if (tab === 'beverages') {
+      const elBev = document.getElementById('chartBevDonut');
+      const elMo  = document.getElementById('chartBevMonthly');
+      if (!elBev || !elMo) return;
+      new Chart(elBev, {
+        type: 'doughnut',
+        data: {
+          labels: ['Soft Drinks', 'Beer', 'Aperitifs'],
+          datasets: [{ data: [52.5, 42.0, 5.5], backgroundColor: [co.teal, co.tealMid, co.amber], borderWidth: 2, borderColor: '#fff' }]
+        },
+        options: { maintainAspectRatio: false, cutout: '60%',
+          plugins: { legend: { position: 'right', labels: { font: { family: co.font, size: 11 }, color: co.tick, boxWidth: 12, padding: 8 } } } }
+      });
+      new Chart(elMo, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+          datasets: [
+            { label: 'Soft Drinks', data: [2100, 3400, 4800, 6500], borderColor: co.teal,      backgroundColor: 'rgba(15,87,87,0.08)', fill: true,  tension: 0.4, pointRadius: 4, borderWidth: 2 },
+            { label: 'Beer',        data: [1800, 2900, 3600, 5200], borderColor: co.amber,     backgroundColor: 'transparent',          fill: false, tension: 0.4, pointRadius: 4, borderWidth: 2 },
+            { label: 'Aperitifs',   data: [380,  560,  620,  840],  borderColor: co.tealLight, backgroundColor: 'transparent',          fill: false, tension: 0.4, pointRadius: 4, borderWidth: 2 }
+          ]
+        },
+        options: { maintainAspectRatio: false,
+          plugins: { legend: { labels: { font: { family: co.font, size: 11 }, color: co.tick, boxWidth: 12, usePointStyle: true, pointStyleWidth: 8 } } },
+          scales: { x: { grid: gr, ticks: tk }, y: { grid: gr, ticks: Object.assign({}, tk, { callback: fmtK }) } } }
+      });
+    }
+  }
+
+  if (dashTabBtns.length) {
+    dashTabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const tab = btn.getAttribute('data-tab');
+        dashTabBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        dashPanels.forEach(function (p) { p.classList.add('hidden'); });
+        const panel = document.getElementById('dash-' + tab);
+        if (panel) {
+          panel.classList.remove('hidden');
+          if (!dashReady[tab]) { initDashTab(tab); dashReady[tab] = true; }
+        }
+      });
+    });
+    initDashTab('overview');
+    dashReady['overview'] = true;
+  }
+
 })();

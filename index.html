@@ -230,30 +230,158 @@
             <div class="embed-chrome-dot"></div>
             <div class="embed-chrome-dot"></div>
           </div>
-          <span class="embed-chrome-label">Live Dashboard &middot; Looker Studio</span>
+          <span class="embed-chrome-label">Dashboard Preview &middot; Q1 2026 Sales Analysis</span>
         </div>
-        <div class="embed-container" id="embedContainer">
-          <div class="embed-loading" id="embedLoading">
-            <div class="spinner"></div>
-            <p>Loading dashboard&hellip;</p>
-          </div>
-          <iframe
-            id="lookerFrame"
-            src="https://datastudio.google.com/embed/reporting/37d80402-6240-4b6c-bb3a-36299fbb8fdd"
-            frameborder="0"
-            allowfullscreen
-            sandbox="allow-scripts allow-same-origin allow-popups allow-storage-access-by-user-activation allow-popups-to-escape-sandbox"
-            loading="lazy"
-            title="KPI Dashboard — Carla Manzano Ramells"
-          ></iframe>
-        </div>
+        <div class="dash-preview">
 
-        <div class="embed-fallback" id="embedFallback">
-          <p>Your browser is blocking the embedded dashboard. You can view it directly on Looker Studio.</p>
-          <a href="https://datastudio.google.com/reporting/37d80402-6240-4b6c-bb3a-36299fbb8fdd"
-             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            Open Dashboard in New Tab
-          </a>
+          <div class="dash-tab-nav">
+            <button class="dash-tab-btn active" data-tab="overview">Sales Overview</button>
+            <button class="dash-tab-btn" data-tab="menu">Menu Analysis</button>
+            <button class="dash-tab-btn" data-tab="wine">Wine &amp; Cava</button>
+            <button class="dash-tab-btn" data-tab="beverages">Beverages</button>
+          </div>
+
+          <div class="dash-panel" id="dash-overview">
+            <div class="dash-kpi-row">
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Total Revenue</div>
+                <div class="dash-kpi-value">€312,480</div>
+                <div class="dash-kpi-sub">Q1 2026</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Transactions</div>
+                <div class="dash-kpi-value">1,847</div>
+                <div class="dash-kpi-sub">tickets issued</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Avg Ticket</div>
+                <div class="dash-kpi-value">€169</div>
+                <div class="dash-kpi-sub">per transaction</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Peak Day</div>
+                <div class="dash-kpi-value">Saturday</div>
+                <div class="dash-kpi-sub">highest volume</div>
+              </div>
+            </div>
+            <div class="dash-charts-row">
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Revenue by Category</div>
+                <canvas id="chartCategory"></canvas>
+              </div>
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Revenue by Day of Week</div>
+                <canvas id="chartDayOfWeek"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel hidden" id="dash-menu">
+            <div class="dash-kpi-row">
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Food Revenue</div>
+                <div class="dash-kpi-value">€185,200</div>
+                <div class="dash-kpi-sub">&agrave; la carte</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Dishes Served</div>
+                <div class="dash-kpi-value">9,840</div>
+                <div class="dash-kpi-sub">Q1 total</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Top Category</div>
+                <div class="dash-kpi-value">Tapas</div>
+                <div class="dash-kpi-sub">20.6% of revenue</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Set Menus</div>
+                <div class="dash-kpi-value">€47,300</div>
+                <div class="dash-kpi-sub">1,024 covers</div>
+              </div>
+            </div>
+            <div class="dash-charts-row">
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Revenue by Food Category</div>
+                <canvas id="chartMenuDonut"></canvas>
+              </div>
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Monthly Revenue Trend</div>
+                <canvas id="chartMonthly"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel hidden" id="dash-wine">
+            <div class="dash-kpi-row">
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Wine &amp; Cava Revenue</div>
+                <div class="dash-kpi-value">€32,100</div>
+                <div class="dash-kpi-sub">Q1 2026</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Bottles Sold</div>
+                <div class="dash-kpi-value">984</div>
+                <div class="dash-kpi-sub">units</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Top Type</div>
+                <div class="dash-kpi-value">White Wine</div>
+                <div class="dash-kpi-sub">42.5% of sales</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">SKUs Tracked</div>
+                <div class="dash-kpi-value">128</div>
+                <div class="dash-kpi-sub">wine references</div>
+              </div>
+            </div>
+            <div class="dash-charts-row">
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Revenue by Wine Type</div>
+                <canvas id="chartWineDonut"></canvas>
+              </div>
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Top Wines by Revenue</div>
+                <canvas id="chartTopWines"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel hidden" id="dash-beverages">
+            <div class="dash-kpi-row">
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Beverages Revenue</div>
+                <div class="dash-kpi-value">€18,400</div>
+                <div class="dash-kpi-sub">Q1 2026</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Units Served</div>
+                <div class="dash-kpi-value">5,800</div>
+                <div class="dash-kpi-sub">drinks</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Top Category</div>
+                <div class="dash-kpi-value">Soft Drinks</div>
+                <div class="dash-kpi-sub">52.5% of revenue</div>
+              </div>
+              <div class="dash-kpi">
+                <div class="dash-kpi-label">Beer — Tap</div>
+                <div class="dash-kpi-value">79%</div>
+                <div class="dash-kpi-sub">vs 21% bottled</div>
+              </div>
+            </div>
+            <div class="dash-charts-row">
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Revenue by Beverage Type</div>
+                <canvas id="chartBevDonut"></canvas>
+              </div>
+              <div class="dash-chart-box">
+                <div class="dash-chart-title">Monthly Beverage Trend</div>
+                <canvas id="chartBevMonthly"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-footer-note">Illustrative data &mdash; structure reflects real Q1 operational dashboards built for a Barcelona beach restaurant</div>
         </div>
       </div>
 
@@ -492,6 +620,24 @@
           <div class="card-body">
             <h4>Dashboard &amp; Process Planning</h4>
             <p>Using AI to structure KPI frameworks, define metric hierarchies, and plan dashboard layouts before building — saving iteration time during the design phase.</p>
+            <span class="card-tool">Tool: Claude</span>
+          </div>
+        </div>
+
+        <div class="numbered-card">
+          <div class="card-num">7</div>
+          <div class="card-body">
+            <h4>Automation Script Development</h4>
+            <p>Using Claude Code to write, debug, and refine Google Apps Script automations — cutting development time for reporting pipelines, data processors, and scheduled workflows from hours to minutes.</p>
+            <span class="card-tool">Tool: Claude Code</span>
+          </div>
+        </div>
+
+        <div class="numbered-card">
+          <div class="card-num">8</div>
+          <div class="card-body">
+            <h4>Analytical Co-Working</h4>
+            <p>Using Claude as a thinking partner throughout the analytical process — structuring problems, stress-testing assumptions, generating hypotheses, and shaping data findings into management-ready conclusions.</p>
             <span class="card-tool">Tool: Claude</span>
           </div>
         </div>
@@ -786,6 +932,7 @@
     <a href="#philosophy"              class="scroll-nav-dot" data-label="Philosophy"></a>
   </nav>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

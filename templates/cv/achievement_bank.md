@@ -34,6 +34,13 @@ All bullets follow the format: **Action verb + what was done + outcome/impact**.
 - Built a product profitability framework connecting sales revenue with supplier purchase costs to identify high-margin, high-volume, and cost-at-risk products.
 - Categorised restaurant products by family and subfamily to support menu engineering and supplier negotiation decisions.
 
+### Cost & Profitability Web App (Built with Claude Code)
+- Designed and built an internal cost-and-profitability web application for the restaurant using Claude Code, with a relational PostgreSQL (Supabase) database modelling ingredients, suppliers, price history, recipe cost sheets, and invoices.
+- Modelled the database schema and wrote SQL to query and aggregate cost and sales data, calculating live food-cost percentages that update in real time as recipe inputs change.
+- Built supplier-invoice upload with automatic price extraction that flows new prices into affected recipes, removing manual cost re-entry.
+- Developed a profitability view crossing POS sales data with recipe costs to surface true margin per dish and per product family, turning gut-feel menu decisions into data-backed ones.
+- Delivered an end-to-end working application (Next.js, React, Supabase/PostgreSQL, TypeScript), demonstrating the ability to model data, query it with SQL, and ship a real tool that solves an operational problem.
+
 ### Operations and Guest Experience
 - Supported restaurant operations across all service areas including reservations, table flow, team coordination, and guest communication during busy service periods.
 - Designed and printed personalised menus and individual handwritten notes for 14 tables of long-time clients and family guests for New Year's Eve, combining operational preparation with guest experience personalisation.

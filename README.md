@@ -1,4 +1,4 @@
-# Application Process Repository — Carla Manzano Ramells
+# Portfolio Database Repository — Carla Manzano Ramells
 
 This repository is a structured professional background system designed to make CV and cover letter generation fast, consistent, and high quality.
 

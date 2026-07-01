@@ -582,24 +582,119 @@
   ============================================================ -->
   <section id="tasks-app">
     <div class="section-inner">
-      <span class="section-label reveal">Portfolio — Featured Build</span>
-      <h2 class="section-title reveal">Rocxi Beach — Task Distribution App</h2>
-      <p class="section-lead reveal">
-        A mobile-first internal PWA I designed and built with Claude Code, replacing a manual Google Sheets + Apps Script system for closing-shift tasks. It automatically distributes weighted tasks fairly across the team for both midday and night shifts, tracks completion live, and keeps a running record of workload equity — all on a Supabase backend.
-      </p>
+      <div class="tasks-app-grid">
+        <div>
+          <span class="section-label reveal">Portfolio — Featured Build</span>
+          <h2 class="section-title reveal">Rocxi Beach — Task Distribution App</h2>
+          <p class="section-lead reveal">
+            A mobile-first internal PWA I designed and built with Claude Code, replacing a manual Google Sheets + Apps Script system for closing-shift tasks. It automatically distributes weighted tasks fairly across the team for both midday and night shifts, tracks completion live, and keeps a running record of workload equity — all on a Supabase backend.
+          </p>
 
-      <div class="tags reveal mt-lg">
-        <span class="tag">React</span>
-        <span class="tag">Vite</span>
-        <span class="tag">Supabase</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">PWA</span>
-        <span class="tag">Realtime</span>
-        <span class="tag">Claude Code</span>
-      </div>
+          <div class="tags reveal mt-lg">
+            <span class="tag">React</span>
+            <span class="tag">Vite</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">PWA</span>
+            <span class="tag">Realtime</span>
+            <span class="tag">Claude Code</span>
+          </div>
 
-      <div class="hero-actions reveal mt-lg">
-        <a href="https://r-beach.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View Live App</a>
+          <div class="hero-actions reveal mt-lg">
+            <a href="https://r-beach.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View Live App</a>
+          </div>
+        </div>
+
+        <div class="phone-mockup reveal" aria-hidden="true">
+          <div class="phone-frame">
+            <div class="phone-statusbar">
+              <span>09:46</span>
+              <span class="phone-statusbar-icons">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><rect x="1" y="10" width="3" height="8"/><rect x="7" y="7" width="3" height="11"/><rect x="13" y="4" width="3" height="14"/><rect x="19" y="1" width="3" height="17"/></svg>
+                <svg viewBox="0 0 24 12" width="20" height="10" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1" width="19" height="10" rx="2.5"/><rect x="3" y="3" width="13" height="6" fill="currentColor" stroke="none"/><rect x="21.5" y="4" width="1.5" height="4" fill="currentColor" stroke="none"/></svg>
+              </span>
+            </div>
+            <div class="phone-header">
+              <div class="phone-header-top">
+                <span class="phone-back">&lsaquo;</span>
+                <span class="phone-header-title">Admin</span>
+                <span class="phone-cta">&#9889; Reparto</span>
+              </div>
+              <div class="phone-header-sub">Monday · Task Checklist</div>
+              <div class="phone-stats">
+                <div class="phone-stat">
+                  <span class="phone-stat-label">Completed</span>
+                  <span class="phone-stat-value">1/13</span>
+                </div>
+                <div class="phone-stat">
+                  <span class="phone-stat-label">Progress</span>
+                  <span class="phone-stat-value">8%</span>
+                </div>
+              </div>
+            </div>
+            <div class="phone-tabs">
+              <span class="phone-tab phone-tab--active">Today</span>
+              <span class="phone-tab">Tasks</span>
+              <span class="phone-tab">Equity</span>
+              <span class="phone-tab">Team</span>
+            </div>
+            <div class="phone-shift-toggle">
+              <span class="phone-shift phone-shift--active">&#9728; Midday</span>
+              <span class="phone-shift">&#127769; Night</span>
+            </div>
+            <div class="phone-hint">Tap each person to see their tasks</div>
+            <div class="phone-list">
+              <div class="phone-person">
+                <span class="phone-avatar" style="background:#1B8F8F">A</span>
+                <div class="phone-person-info">
+                  <div class="phone-person-row"><span>Staff A</span><span class="phone-person-count">0/2</span></div>
+                  <div class="phone-progress"><div class="phone-progress-bar" style="width:0%"></div></div>
+                </div>
+                <span class="phone-dot phone-dot--red"></span>
+              </div>
+              <div class="phone-person phone-person--expanded">
+                <span class="phone-avatar" style="background:#3C6E1F">B</span>
+                <div class="phone-person-info">
+                  <div class="phone-person-row"><span>Staff B</span><span class="phone-person-count">1/2</span></div>
+                  <div class="phone-progress"><div class="phone-progress-bar" style="width:50%"></div></div>
+                </div>
+                <span class="phone-dot phone-dot--amber"></span>
+              </div>
+              <div class="phone-task phone-task--done">
+                <span class="phone-task-check">&#10003;</span>
+                <div class="phone-task-info">
+                  <span class="phone-task-name">Restock wine</span>
+                  <span class="phone-task-credit">Done by Staff C</span>
+                </div>
+                <span class="phone-task-pts">5 pts</span>
+              </div>
+              <div class="phone-task">
+                <span class="phone-task-check phone-task-check--empty"></span>
+                <div class="phone-task-info">
+                  <span class="phone-task-name">Check ice buckets (indoor)</span>
+                </div>
+                <span class="phone-task-pts phone-task-pts--pending">3 pts</span>
+              </div>
+              <div class="phone-person">
+                <span class="phone-avatar" style="background:#2A5EA6">D</span>
+                <div class="phone-person-info">
+                  <div class="phone-person-row"><span>Staff D</span><span class="phone-person-count">0/1</span></div>
+                  <div class="phone-progress"><div class="phone-progress-bar" style="width:0%"></div></div>
+                </div>
+                <span class="phone-dot phone-dot--red"></span>
+              </div>
+              <div class="phone-person">
+                <span class="phone-avatar" style="background:#3C8C4E">E</span>
+                <div class="phone-person-info">
+                  <div class="phone-person-row"><span>Staff E</span><span class="phone-person-count">0/2</span></div>
+                  <div class="phone-progress"><div class="phone-progress-bar" style="width:0%"></div></div>
+                </div>
+                <span class="phone-dot phone-dot--red"></span>
+              </div>
+            </div>
+          </div>
+          <p class="phone-caption">Illustrative recreation of the Admin screen — not a live screenshot, names anonymised.</p>
+        </div>
       </div>
 
       <div class="cards-grid reveal mt-xl">

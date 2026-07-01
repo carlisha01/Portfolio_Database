@@ -504,6 +504,309 @@ section { padding: 7rem var(--space-lg); }
   opacity: 0.7;
 }
 
+/* === Tasks App Phone Mockup === */
+.tasks-app-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-3xl);
+}
+
+.phone-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-frame {
+  width: 280px;
+  background: #F7F3EE;
+  border-radius: 34px;
+  border: 8px solid #14314A;
+  box-shadow: var(--shadow-hover);
+  overflow: hidden;
+  font-family: var(--font-sans);
+}
+
+.phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px 4px;
+  background: #1A3E5C;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.phone-statusbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.phone-header {
+  background: #1A3E5C;
+  color: #FFFFFF;
+  padding: 10px 16px 16px;
+}
+
+.phone-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.phone-back {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.phone-header-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.phone-cta {
+  background: #2E9E5B;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.phone-header-sub {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.phone-stats {
+  display: flex;
+  gap: 8px;
+}
+
+.phone-stat {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+}
+
+.phone-stat-label {
+  display: block;
+  font-size: 0.6rem;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+.phone-stat-value {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.phone-tabs {
+  display: flex;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 12px;
+}
+
+.phone-tab {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 10px 2px 8px;
+}
+
+.phone-tab--active {
+  color: #1A3E5C;
+  border-bottom: 2px solid #1A3E5C;
+}
+
+.phone-shift-toggle {
+  display: flex;
+  gap: 6px;
+  background: #EDE8E0;
+  margin: 10px;
+  padding: 4px;
+  border-radius: var(--radius-full);
+}
+
+.phone-shift {
+  flex: 1;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 6px 4px;
+  border-radius: var(--radius-full);
+}
+
+.phone-shift--active {
+  background: #FFFFFF;
+  color: #1A3E5C;
+  box-shadow: var(--shadow-sm);
+}
+
+.phone-hint {
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  padding: 0 14px 8px;
+}
+
+.phone-list {
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.phone-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.phone-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-person-info { flex: 1; min-width: 0; }
+
+.phone-person-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.phone-person-row span:last-child {
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.phone-progress {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.phone-progress-bar {
+  height: 100%;
+  background: #C17F3A;
+  border-radius: var(--radius-full);
+}
+
+.phone-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.phone-dot--red { background: #C4453C; }
+.phone-dot--amber { background: #D99A2B; }
+
+.phone-task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 40px;
+  background: #EFEAE2;
+  border-top: 1px solid var(--color-border);
+}
+
+.phone-task-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2E9E5B;
+  color: #FFFFFF;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-task-check--empty {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+}
+
+.phone-task-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-task--done .phone-task-name {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.phone-task-name {
+  font-size: 0.68rem;
+  color: var(--color-text-primary);
+}
+
+.phone-task-credit {
+  font-size: 0.6rem;
+  color: #2E9E5B;
+  text-decoration: line-through;
+}
+
+.phone-task-pts {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #B3403A;
+  background: #F8DEDC;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.phone-task-pts--pending {
+  color: #8A6B1E;
+  background: #F3E6C4;
+}
+
+.phone-caption {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+  max-width: 260px;
+  margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .tasks-app-grid { grid-template-columns: 1fr; }
+  .phone-mockup { display: none; }
+}
+
 .hero-scroll {
   display: flex;
   align-items: center;

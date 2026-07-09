@@ -1,68 +1,15 @@
-# Portfolio Database Repository — Carla Manzano Ramells
+# Portfolio Site — Carla Manzano Ramells
 
-This repository is a structured professional background system designed to make CV and cover letter generation fast, consistent, and high quality.
+This repository hosts the public portfolio website for Carla Manzano Ramells — Operations & Business Analytics — published via GitHub Pages at:
 
-## How It Works
+https://carlisha01.github.io/Portfolio_Database/
 
-1. **Profile** (`profile/`) — Source-of-truth background data, broken into scannable sections
-2. **Positioning** (`positioning/`) — Narrative, differentiators, and pre-built angle files for each role type
-3. **Templates** (`templates/`) — CV and cover letter building blocks: structure guides, achievement banks, opening hooks
-4. **Applications** (`applications/`) — A folder per job application + a master tracker
-5. **Instructions** (`instructions/`) — Human-readable guides for using the system
+## Contents
 
-## Starting a New Application
+- `index.html` — page markup and content
+- `style.css` — styling
+- `script.js` — interactivity (dashboard previews, sentiment charts, navigation)
 
-See `instructions/how_to_use.md` for the full step-by-step guide.
+## Notes
 
-If working with Claude: open this repo and Claude will read `CLAUDE.md` for instructions automatically.
-
-## Repository Structure
-
-```
-application_process/
-├── CLAUDE.md                        ← AI operating instructions
-├── README.md                        ← This file
-│
-├── profile/
-│   ├── master_profile.md            ← Full comprehensive profile
-│   ├── 01_executive_summary.md
-│   ├── 02_education.md
-│   ├── 03_experience.md
-│   ├── 04_projects.md
-│   ├── 05_skills.md
-│   ├── 06_languages.md
-│   └── 07_keywords.md
-│
-├── positioning/
-│   ├── professional_narrative.md
-│   ├── differentiators.md
-│   ├── target_roles.md
-│   ├── cv_headlines.md
-│   └── role_angles/
-│       ├── business_analyst.md
-│       ├── operations_analyst.md
-│       ├── crm_operations.md
-│       ├── digital_transformation.md
-│       ├── revenue_strategy.md
-│       └── hospitality_operations.md
-│
-├── templates/
-│   ├── cv/
-│   │   ├── cv_structure.md
-│   │   └── achievement_bank.md
-│   └── cover_letter/
-│       ├── cl_structure.md
-│       ├── opening_hooks.md
-│       └── closing_statements.md
-│
-├── applications/
-│   ├── tracker.md
-│   └── _template/
-│       ├── job_description.md
-│       ├── cv_tailored.md
-│       └── cover_letter.md
-│
-└── instructions/
-    ├── how_to_use.md
-    └── tailoring_guide.md
-```
+This repository contains only the public-facing site. It is intentionally public since it's served via GitHub Pages.
